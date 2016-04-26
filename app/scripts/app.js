@@ -19,6 +19,7 @@
       })
       .state('album', {
         url: '/',
+        controller: 'AlbumCtrl as album',
         templateUrl: '/templates/album.html'
       });
   }
