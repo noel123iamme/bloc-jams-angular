@@ -162,6 +162,7 @@
 
 @media (max-width: 640px) {
     .player-bar {
+        height: 150px;
         padding: 1rem;
         background-color: rgba(0,0,0,0.6);
     }

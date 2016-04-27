@@ -73,6 +73,12 @@
     -----------------------------------------------------------------------------------*/
     SongPlayer.currentSong = null;
     
+   /*---------------------------------------------------------------------------------
+    * @desc Active album object artist
+    * @type {Object}
+    -----------------------------------------------------------------------------------*/
+    SongPlayer.currentSongArtist = currentAlbum.artist;
+    
     /*---------------------------------------------------------------------------------
     * @function play
     * @desc Sets and starts playing current song 
@@ -113,6 +119,26 @@
       currentSongIndex--;
 
       if (currentSongIndex < 0) {
+         stopCurrentSong();
+      } else {
+         var song = currentAlbum.songs[currentSongIndex];
+         setSong(song);
+         playSong(song);
+      }
+    };
+    
+    /*---------------------------------------------------------------------------------
+    * @function next
+    * @desc Stops currently playing song and plays previous song
+    * @param {Object} song
+    -----------------------------------------------------------------------------------*/
+    SongPlayer.next = function(song) {
+      song = song || SongPlayer.currentSong;
+
+      var currentSongIndex = getSongIndex(SongPlayer.currentSong);
+      currentSongIndex++;
+
+      if (currentSongIndex > currentAlbum.songs.length) {
          stopCurrentSong();
       } else {
          var song = currentAlbum.songs[currentSongIndex];
