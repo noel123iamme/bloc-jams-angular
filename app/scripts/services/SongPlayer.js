@@ -73,6 +73,12 @@
     -----------------------------------------------------------------------------------*/
     SongPlayer.currentSong = null;
     
+    SongPlayer.currentTime = function() {
+      if (currentBuzzObject) {
+        currentBuzzObject.getTime();
+      }
+    };
+    
    /*---------------------------------------------------------------------------------
     * @desc Active album object artist
     * @type {Object}
