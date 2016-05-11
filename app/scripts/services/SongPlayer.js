@@ -187,6 +187,20 @@
       }
     };
     
+    /**
+    * @function timeCode
+    * @desc Formats time in seconds to mm:ss
+    * @param {seconds} 
+    */
+    SongPlayer.timeCode = function(seconds) {
+      if (Number.isNaN(seconds)) {
+        return "-:--";
+      }
+      if (currentBuzzObject) {
+        return buzz.toTimer(seconds);
+      }
+    };
+    
     return SongPlayer;
   }
   
