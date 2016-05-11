@@ -86,6 +86,12 @@
     SongPlayer.currentTime = null;
     
    /*---------------------------------------------------------------------------------
+    * @desc Volume of playing song object from list of songs
+    * @type {Object}
+    -----------------------------------------------------------------------------------*/
+    SongPlayer.volume = null;
+    
+   /*---------------------------------------------------------------------------------
     * @desc Active album object artist
     * @type {Object}
     -----------------------------------------------------------------------------------*/
@@ -167,6 +173,17 @@
     SongPlayer.setCurrentTime = function(time) {
       if (currentBuzzObject) {
         currentBuzzObject.setTime(time);
+      }
+    };
+    
+    /**
+    * @function setVolume
+    * @desc Set volume of currently playing song
+    * @param {Number} volume
+    */
+    SongPlayer.setVolume = function(volume) {
+      if (currentBuzzObject) {
+        currentBuzzObject.setVolume(volume);
       }
     };
     

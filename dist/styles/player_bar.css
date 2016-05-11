@@ -85,6 +85,7 @@
 .seek-control .current-time {
     position: absolute;
     top: 0.5rem;
+    
 }
 
 .seek-control .total-time {
