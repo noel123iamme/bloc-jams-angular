@@ -43,6 +43,16 @@
           SongPlayer.currentTime = currentBuzzObject.getTime();
         });
       });
+      
+      currentBuzzObject.bind('ended', function() {
+        $rootScope.$apply(function() {
+          if (getSongIndex(SongPlayer.currentSong) < currentAlbum.songs.length -1) {
+            SongPlayer.next(SongPlayer.currentSong);
+          } else {
+            SongPlayer.play(currentAlbum.songs[0]);
+          }
+        });
+      });
 
       SongPlayer.currentSong = song;
     };
