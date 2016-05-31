@@ -13,12 +13,13 @@
         templateUrl: '/templates/landing.html'
       })
       .state('collection', {
-        url: '/',
+        url: '/collection',
         controller: 'CollectionCtrl as collection',
         templateUrl: '/templates/collection.html'
       })
       .state('album', {
-        url: '/',
+        url: '/album/:pageID',
+        params: {pageID: '01'},
         controller: 'AlbumCtrl as album',
         templateUrl: '/templates/album.html'
       });

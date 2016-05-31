@@ -4,6 +4,7 @@
 
     // Example Album
     var albumPicasso = {
+        id: '01',
         title: 'The Colors',
         artist: 'Pablo Picasso',
         label: 'Cubism',
@@ -20,6 +21,7 @@
 
     // Another Example Album
     var albumMarconi = {
+        id: '20',
         title: 'The Telephone',
         artist: 'Guglielmo Marconi',
         label: 'EM',
@@ -36,6 +38,7 @@
 
     // 3rd Album
     var albumPop = {
+        id: '21',
         title: 'Pop! Goes the Weasel',
         artist: 'Nursery Rhymes',
         label: 'Kids',
@@ -50,8 +53,14 @@
         ]
     };
 
-    Fixtures.getAlbum = function() {
-      return albumPicasso;  
+    Fixtures.getAlbum = function(pageID) {
+      var album = angular.copy(albumPicasso);
+      console.log(pageID);
+      album.id = pageID;
+      album.albumArtUrl = '/assets/images/album_covers/' + pageID + '.png';
+      console.log(album);
+      
+      return album;  
     };
     
     Fixtures.getCollection = function(numberOfAlbums) {
@@ -60,7 +69,8 @@
       for (var i = 0; i < numberOfAlbums; i++) {
         if (i >= 9) {sPad = ''}
         albums.push(angular.copy(albumPicasso));
-        albums[i].albumArtUrl = '/assets/images/album_covers/' + sPad + (i + 1) + '.png'
+        albums[i].id = sPad + (i + 1);
+        albums[i].albumArtUrl = '/assets/images/album_covers/' + sPad + (i + 1) + '.png';
       }
       return albums;
     };
