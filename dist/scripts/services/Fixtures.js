@@ -56,8 +56,11 @@
     
     Fixtures.getCollection = function(numberOfAlbums) {
       var albums = [];
+      var sPad = '0';
       for (var i = 0; i < numberOfAlbums; i++) {
+        if (i >= 9) {sPad = ''}
         albums.push(angular.copy(albumPicasso));
+        albums[i].albumArtUrl = '/assets/images/album_covers/' + sPad + (i + 1) + '.png'
       }
       return albums;
     };
